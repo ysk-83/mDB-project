@@ -16,11 +16,34 @@
 
 const movieDB = {
     movies: [
-        "Логан",
+        "Аура",
         "Лига справедливости",
-        "Ла-ла лэнд",
-        "Одержимость",
-        "Скотт Пилигрим против..."
+        "Зов Ада",
+        "Игрок",
+        "Я,ты и он...",
+        
     ]
 };
+
+const adv = document.querySelectorAll('.promo__adv img ');
+const promoGenre = document.querySelector('.promo__genre');
+const promoBg = document.querySelector('.promo__bg');
+const list = document.querySelector('.promo__interactive-list');
+console.log(list);
+
+adv.forEach(item => item.remove());
+
+promoGenre.textContent= 'Драма';
+
+promoBg.style.backgroundImage = 'url("img/bg.jpg")';
+
+list.innerHTML = '';
+movieDB.movies.sort();
+movieDB.movies.forEach((film, i) => {
+    list.innerHTML += `<li class="promo__interactive-item">${i + 1} ${movieDB.movies[i]}
+               <div class="delete"></div>
+             </li>`;
+});
+
+
 
